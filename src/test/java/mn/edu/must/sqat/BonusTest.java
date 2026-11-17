@@ -56,4 +56,11 @@ class BonusTest {
     void bonusExactThreshold() {
         assertEquals(5, DataFlowTargets.bonus(new int[]{1}, 1));
     }
+
+    // ---- Part C: test that kills mutant M2 ----
+    @Test
+    @DisplayName("M2 killer: best updated after a gap, present=5 differs from streak=3 at line 43")
+    void bonusBestAfterGap() {
+        assertEquals(5, DataFlowTargets.bonus(new int[]{1, 1, 0, 1, 1, 1}, 5));
+    }
 }
